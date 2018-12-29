@@ -56,7 +56,9 @@ var addCmd = &cobra.Command{
 		c := new(dns.Client)
 		c.SingleInflight = true
 
-		resp, _, err := c.Exchange(m, "localhost:53")
+		d := fmt.Sprintf("%s:%s", dnsserver, dnsport)
+
+		resp, _, err := c.Exchange(m, d)
 
 		if err != nil {
 			log.Infof("error in dns.Client.Exchange: %s", err)

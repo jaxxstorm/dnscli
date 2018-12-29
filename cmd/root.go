@@ -28,6 +28,8 @@ var (
 	ttl        int
 	address    string
 	record     string
+	dnsserver  string
+	dnsport    string
 )
 
 // RootCmd represents the base command when called without any subcommands
@@ -66,6 +68,8 @@ func init() {
 	RootCmd.PersistentFlags().IntVar(&ttl, "ttl", 8600, "Record TTL")
 	RootCmd.PersistentFlags().StringVarP(&address, "address", "a", "", "IP address for record")
 	RootCmd.PersistentFlags().StringVarP(&record, "record", "r", "", "Fully qualified record name")
+	RootCmd.PersistentFlags().StringVarP(&dnsserver, "server", "s", "127.0.0.1", "Address of DNS server")
+	RootCmd.PersistentFlags().StringVarP(&dnsport, "port", "p", "53", "Port DNS server is listening on")
 }
 
 // initConfig reads in config file and ENV variables if set.
