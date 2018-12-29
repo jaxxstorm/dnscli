@@ -66,7 +66,7 @@ func init() {
 	//RootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.dnscli.yaml)")
 	RootCmd.PersistentFlags().StringVarP(&recordType, "type", "t", "A", "DNS Record Type")
 	RootCmd.PersistentFlags().IntVar(&ttl, "ttl", 8600, "Record TTL")
-	RootCmd.PersistentFlags().StringVarP(&address, "address", "a", "", "IP address for record")
+	RootCmd.PersistentFlags().StringVarP(&address, "address", "a", "", "Destination address for record")
 	RootCmd.PersistentFlags().StringVarP(&record, "record", "r", "", "Fully qualified record name")
 	RootCmd.PersistentFlags().StringVarP(&dnsserver, "server", "s", "127.0.0.1", "Address of DNS server")
 	RootCmd.PersistentFlags().StringVarP(&dnsport, "port", "p", "53", "Port DNS server is listening on")
