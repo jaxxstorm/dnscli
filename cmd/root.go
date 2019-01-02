@@ -30,6 +30,9 @@ var (
 	record     string
 	dnsserver  string
 	dnsport    string
+	dnskey     string
+	dnskeyalgo string
+	dnskeyname string
 )
 
 // RootCmd represents the base command when called without any subcommands
@@ -70,6 +73,9 @@ func init() {
 	RootCmd.PersistentFlags().StringVarP(&record, "record", "r", "", "Fully qualified record name")
 	RootCmd.PersistentFlags().StringVarP(&dnsserver, "server", "s", "127.0.0.1", "Address of DNS server")
 	RootCmd.PersistentFlags().StringVarP(&dnsport, "port", "p", "53", "Port DNS server is listening on")
+	RootCmd.PersistentFlags().StringVarP(&dnskey, "key", "k", "", "DNS Key to use")
+	RootCmd.PersistentFlags().StringVar(&dnskeyalgo, "algo", "", "DNS Key Algo")
+	RootCmd.PersistentFlags().StringVar(&dnskeyname, "key-name", "", "DNS Key name")
 }
 
 // initConfig reads in config file and ENV variables if set.

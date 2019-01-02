@@ -18,6 +18,7 @@ import (
 	"fmt"
 	log "github.com/sirupsen/logrus"
 	"strings"
+	"time"
 
 	"github.com/miekg/dns"
 	"github.com/spf13/cobra"
@@ -55,6 +56,12 @@ var addCmd = &cobra.Command{
 
 		c := new(dns.Client)
 		c.SingleInflight = true
+
+		if dnskey != "" {
+			// TODO: add check of DNS key name here
+			c.TsigSecret = map[string]string{dnskeyname: dnskey}
+			m.SetTsig(dnskeyname, dns.HmacMD5, 300, time.Now().Unix())
+		}
 
 		d := fmt.Sprintf("%s:%s", dnsserver, dnsport)
 
